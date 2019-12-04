@@ -1,11 +1,10 @@
 import java.util.Timer;
 import java.util.concurrent.*;
-//import java.util.TimeUnit;
+
 
 public class Driver {
   public static void main(String args[]) {
     int initp = Integer.parseInt(args[0]);
-    //long start = System.nanoTime();
     Semaphore p = new Semaphore(1);
     int timeUnit = 20; //in milliseconds
     int majorFrame = 16;
@@ -23,9 +22,8 @@ public class Driver {
       threads[i] = new Thread(workObjs[i]);
     }
 
-    Timer sTimer = new Timer();
-    Scheduler sched = new Scheduler(workObjs, threads, sTimer);
-    sTimer.schedule(sched, 10, 10);
-
+    Scheduler sched = new Scheduler(workObjs, threads);
+    Thread t = new Thread(sched);
+    t.start();
   }
 }

@@ -2,7 +2,6 @@ import java.util.concurrent.*;
 
 public class Work implements Runnable {
   public Semaphore lock;
-  //public Semaphore q;
   boolean done;
   public int period;
   public int numLoops;
