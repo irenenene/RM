@@ -1,31 +1,23 @@
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class Scheduler implements Runnable {
+public class Scheduler extends TimerTask {
   public int[] overruns;
-  public int timeUnit;
-  public int majorFrame;
-  public int totalPeriods;
-
   public Work[] workObjs;
   public Thread[] threads;
+  public Timer time;
+  public int counter;
 
-  public Scheduler() {
+  public Scheduler(Work[] w, Thread[] t, Timer time) {
+    counter = 0;
+    this.time = time;
     overruns = new int[4];
     Arrays.fill(overruns, 0);
-    timeUnit = 20;
-    majorFrame = 16;
-    totalPeriods = 10;
     workObjs = new Work[4];
     threads = new Thread[4];
-
-    workObjs[0] = new Work(1, 100);
-    workObjs[1] = new Work(2, 200);
-    workObjs[2] = new Work(4, 400);
-    workObjs[3] = new Work(16, 1600);
-
-    for (int i = 0; i < 4; i++) {
-      threads[i] = new Thread(workObjs[i]);
-    }
+    workObjs = w;
+    threads = t;
 
     determinePriority();
   }
@@ -56,6 +48,12 @@ public class Scheduler implements Runnable {
       threads[i].run();
     }
 
+    counter++;
+
+    if(counter >= 10)
+      time.cancel();
+    /*
+
     for (int i = 0; i < 4; i++) {
       try {
         threads[i].join();
@@ -63,7 +61,9 @@ public class Scheduler implements Runnable {
       catch(Exception e) {
 
       }
-    }
+    }*/
+
+    getResults();
   }
 
   public void getResults() {
