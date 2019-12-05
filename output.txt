@@ -1,0 +1,29 @@
+Script started on 2019-12-04 23:32:05-0800
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ taskset -c 1 java Driver 100
+Thread 0: 160 - Overruns: 0
+Thread 1: 80 - Overruns: 0
+Thread 2: 40 - Overruns: 0
+Thread 3: 10 - Overruns: 0
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ taskset -c 1 java Driver 1000
+Thread 0: 160 - Overruns: 0
+Thread 1: 80 - Overruns: 0
+Thread 2: 40 - Overruns: 0
+Thread 3: 10 - Overruns: 0
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ taskset -c 1 java Driver 10000
+Thread 0: 160 - Overruns: 0
+Thread 1: 80 - Overruns: 0
+Thread 2: 40 - Overruns: 0
+Thread 3: 10 - Overruns: 0
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ taskset -c 1 java Driver 100000
+Thread 0: 158 - Overruns: 2
+Thread 1: 80 - Overruns: 0
+Thread 2: 40 - Overruns: 0
+Thread 3: 10 - Overruns: 0
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ taskset -c 1 java Driver 1000000
+Thread 0: 89 - Overruns: 71
+Thread 1: 71 - Overruns: 9
+Thread 2: 40 - Overruns: 0
+Thread 3: 10 - Overruns: 0
+]0;irene@DESKTOP-10CFOJG: ~/RM[01;32mirene@DESKTOP-10CFOJG[00m:[01;34m~/RM[00m$ exit
+
+Script done on 2019-12-04 23:33:05-0800
